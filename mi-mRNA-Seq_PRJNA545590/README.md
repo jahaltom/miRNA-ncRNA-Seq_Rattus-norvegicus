@@ -25,12 +25,12 @@ gunzip *gz*
 
 
 **Run miRNA-Seq quantification analysis**
-This generates "countTable.tsv" which is used as count input for DESeq2.
+This should generate "countTable.tsv" which is used as count input for DESeq2.
 
 ```
 snakemake -j 6 -s miRNA-Seq.py --cluster "sbatch -t 02:00:00  -c 30 -p RM-shared"
 ```
-Findings:
+Findings: Failed due to lack of data.
 ```
 SRR9164621
 #miRNA  read_count      precursor       total   621     621(norm)
@@ -38,9 +38,7 @@ rno-miR-466b-3p 1.00    rno-mir-466b-1  1.00    1.00    500000.00
 rno-miR-466b-3p 1.00    rno-mir-466b-3  1.00    1.00    500000.00
 ```
 
-**Run DE analysis**
 
-Failed due to lack of data.
 
 
 
