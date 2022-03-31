@@ -5,6 +5,8 @@
 #SBATCH --ntasks-per-node=16   
 
 
+#Download Rat gtf
+wget http://ftp.ensembl.org/pub/release-105/gtf/rattus_norvegicus/Rattus_norvegicus.mRatBN7.2.105.gtf.gz
 
 mkdir Rat_data
 cd Rat_data
