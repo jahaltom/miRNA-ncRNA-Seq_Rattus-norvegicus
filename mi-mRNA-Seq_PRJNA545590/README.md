@@ -5,7 +5,7 @@ Since the data is paired-end, it is very unlikely to find mature miRNAs, the bes
 
 Taking run accession IDs as input (RAids.txt) this pipeline quantifies miRNA-Seq data using miRDeep2.
 
-The quantification step in this pipeline is set up to allow for parallelization with each run accession ID being done separately. Since a mature miRNA can come from more than 1 precursor miRNA, these particular mature miRNA's are averaged across precursor miRNA's. The resulting average is then rounded to the nearest integer.
+The quantification step in this pipeline is set up to allow for parallelization with each run accession ID being done separately. Since a mature miRNA can come from more than 1 precursor miRNA, these particular mature miRNA's are averaged across precursor miRNA's. 
 
 Species is Rattus norvegicus.
 
