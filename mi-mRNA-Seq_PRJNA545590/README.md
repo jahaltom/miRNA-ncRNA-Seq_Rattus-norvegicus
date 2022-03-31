@@ -30,7 +30,7 @@ This should generate "countTable.tsv" which is used as count input for DESeq2.
 ```
 snakemake -j 6 -s miRNA-Seq.py --cluster "sbatch -t 02:00:00  -c 30 -p RM-shared"
 ```
-Findings: Failed due to lack of data.
+Findings: Failed due to lack of data. DESeq2 not possible.
 ```
 SRR9164621
 #miRNA  read_count      precursor       total   621     621(norm)
@@ -40,6 +40,7 @@ rno-miR-466b-3p 1.00    rno-mir-466b-3  1.00    1.00    500000.00
 
 
 
+# ncRNA-Seq
 
 
 
