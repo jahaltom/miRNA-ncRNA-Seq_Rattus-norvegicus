@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#SBATCH --time=3:00:00   
+#SBATCH --nodes=1  
+#SBATCH --ntasks-per-node=16   
+
 
 
 mkdir Rat_data
