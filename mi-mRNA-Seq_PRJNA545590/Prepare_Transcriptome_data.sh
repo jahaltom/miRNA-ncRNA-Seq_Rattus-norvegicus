@@ -35,7 +35,7 @@ sed -i 's/gene://g' Rattus_norvegicus.mRatBN7.2.ncrna.fa
 grep ">" Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa | cut -d " " -f 1 | tr -d ">" > decoys.txt
         
 
-#combine transcriptomes and decoy fasta files.   
+#combine transcriptome and decoy fasta files.   
 cat  Rattus_norvegicus.mRatBN7.2.ncrna.fa Rattus_norvegicus.mRatBN7.2.cdna.all.fa Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa > RatTranscrptome_decoy.fasta
 
 
