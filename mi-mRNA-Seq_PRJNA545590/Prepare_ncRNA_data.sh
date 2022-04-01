@@ -23,7 +23,7 @@ wget http://ftp.ensembl.org/pub/release-105/fasta/rattus_norvegicus/dna/Rattus_n
 gunzip *.gz
 
 #Make list of TranscriptIDs
-grep ">" Rattus_norvegicus.mRatBN7.2.ncrna.fa | awk '{print $1}' | sed 's/>//g' > TranscriptIDs
+grep ">" Rattus_norvegicus.mRatBN7.2.ncrna.fa | awk '{print $1}' | sed 's/>//g' > ../ncRNA_TranscriptIDs
 
 
 #create decoy list
