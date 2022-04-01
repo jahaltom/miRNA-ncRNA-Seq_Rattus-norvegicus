@@ -42,7 +42,7 @@ rno-miR-466b-3p 1.00    rno-mir-466b-3  1.00    1.00    500000.00
 
 # ncRNA-Seq
 
-**Prepareing Transcriptome Data
+**Prepareing Transcriptome Data**
 
 Creates a salmon index for all transcripts of Rat Ensembl genes, including ncRNA. Uses Rat genome and uses it as a decoy file. 
 ```
