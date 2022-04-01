@@ -8,8 +8,8 @@
 
 
 
-mkdir Rat_data
-cd Rat_data
+mkdir Rat_ncRNA_data
+cd Rat_ncRNA_data
 
 #download Rat ncrna transcriptome 
 wget http://ftp.ensembl.org/pub/release-105/fasta/rattus_norvegicus/ncrna/Rattus_norvegicus.mRatBN7.2.ncrna.fa.gz
@@ -28,7 +28,7 @@ grep ">" Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa | cut -d " " -f 1 | tr -d "
         
 
 #combine transcriptomes and decoy fasta files.   
-cat  Rattus_norvegicus.mRatBN7.2.ncrna.fa Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa > RatTranscrptome_decoy.fasta
+cat  Rattus_norvegicus.mRatBN7.2.ncrna.fa Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa > Rat_ncRNA_Transcrptome_decoy.fasta
 
 
 #cleanup
@@ -36,5 +36,5 @@ rm Rattus_norvegicus.mRatBN7.2.ncrna.fa Rattus_norvegicus.mRatBN7.2.dna.toplevel
 
 
 #create salmon index
-time salmon index -t RatTranscrptome_decoy.fasta -d decoys.txt -p 15 -i salmon_index
+time salmon index -t Rat_ncRNA_Transcrptome_decoy.fasta -d decoys.txt -p 15 -i salmon_index
 
