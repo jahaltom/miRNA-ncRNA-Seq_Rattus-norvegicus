@@ -23,7 +23,8 @@ gunzip *.gz
 
 #Make list of TranscriptIDs
 grep ">" Rattus_norvegicus.mRatBN7.2.cdna.all.fa | awk '{print $1}' | sed 's/>//g' > ../TranscriptIDs
-
+#Replace space with |
+sed -i 's/ /|/g' Rattus_norvegicus.mRatBN7.2.cdna.all.fa
 
 #create decoy list
 grep ">" Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa | cut -d " " -f 1 | tr -d ">" > decoys.txt
