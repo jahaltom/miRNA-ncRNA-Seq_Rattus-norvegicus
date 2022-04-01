@@ -25,9 +25,11 @@ gunzip *.gz
 
 #Make list of TranscriptIDs
 cat Rattus_norvegicus.mRatBN7.2.cdna.all.fa grep Rattus_norvegicus.mRatBN7.2.ncrna.fa | grep ">" | awk '{print $1}' | sed 's/>//g' > ../TranscriptIDs
-#Replace space with |
-sed -i 's/ /|/g' Rattus_norvegicus.mRatBN7.2.cdna.all.fa
-sed -i 's/ /|/g' Rattus_norvegicus.mRatBN7.2.ncrna.fa
+#Replace space with |. Remove gene:
+sed -i 's/ /|/g' Rattus_norvegicus.mRatBN7.2.cdna.all.fa 
+sed -i 's/gene://g' Rattus_norvegicus.mRatBN7.2.cdna.all.fa 
+sed -i 's/ /|/g' Rattus_norvegicus.mRatBN7.2.ncrna.fa 
+sed -i 's/gene://g' Rattus_norvegicus.mRatBN7.2.ncrna.fa
 
 
 #create decoy list
