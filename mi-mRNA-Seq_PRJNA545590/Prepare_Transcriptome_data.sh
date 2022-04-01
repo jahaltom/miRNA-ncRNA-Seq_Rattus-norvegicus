@@ -13,6 +13,8 @@ cd Rat_data
 
 #download Rat  transcriptome. All transcripts of Ensembl genes, excluding ncRNA.
 wget http://ftp.ensembl.org/pub/release-105/fasta/rattus_norvegicus/cdna/Rattus_norvegicus.mRatBN7.2.cdna.all.fa.gz
+#download Rat ncrna transcriptome 
+wget http://ftp.ensembl.org/pub/release-105/fasta/rattus_norvegicus/ncrna/Rattus_norvegicus.mRatBN7.2.ncrna.fa.gz
 
 
 #download Rat Genome
@@ -22,20 +24,22 @@ wget http://ftp.ensembl.org/pub/release-105/fasta/rattus_norvegicus/dna/Rattus_n
 gunzip *.gz
 
 #Make list of TranscriptIDs
-grep ">" Rattus_norvegicus.mRatBN7.2.cdna.all.fa | awk '{print $1}' | sed 's/>//g' > ../TranscriptIDs
+cat Rattus_norvegicus.mRatBN7.2.cdna.all.fa grep Rattus_norvegicus.mRatBN7.2.ncrna.fa | grep ">" | awk '{print $1}' | sed 's/>//g' > ../TranscriptIDs
 #Replace space with |
 sed -i 's/ /|/g' Rattus_norvegicus.mRatBN7.2.cdna.all.fa
+sed -i 's/ /|/g' Rattus_norvegicus.mRatBN7.2.ncrna.fa
+
 
 #create decoy list
 grep ">" Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa | cut -d " " -f 1 | tr -d ">" > decoys.txt
         
 
 #combine transcriptomes and decoy fasta files.   
-cat  Rattus_norvegicus.mRatBN7.2.cdna.all.fa Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa > RatTranscrptome_decoy.fasta
+cat  Rattus_norvegicus.mRatBN7.2.ncrna.fa Rattus_norvegicus.mRatBN7.2.cdna.all.fa Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa > RatTranscrptome_decoy.fasta
 
 
 #cleanup
-rm Rattus_norvegicus.mRatBN7.2.cdna.all.fa Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa
+rm Rattus_norvegicus.mRatBN7.2.cdna.all.fa Rattus_norvegicus.mRatBN7.2.dna.toplevel.fa Rattus_norvegicus.mRatBN7.2.ncrna.fa
 
 
 #create salmon index
