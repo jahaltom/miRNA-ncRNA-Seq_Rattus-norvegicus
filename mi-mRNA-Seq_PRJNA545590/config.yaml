@@ -2,6 +2,6 @@ DIR: 'out'
 THREADS: 16
 #Specify file type: fastq,fq, or bam
 FileType: 'bam'
-##Specify layout: Paired or Single
+#Specify layout: Paired or Single
 Layout: 'Paired'
 Transcriptome: 'Rat_data/RatTranscrptome_decoy.fasta'
