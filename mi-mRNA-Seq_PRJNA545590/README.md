@@ -54,3 +54,8 @@ Quantifies runs in parallel. Outputs transcript and gene level TPM and counts. G
 ```
 snakemake -j 50 -s SRA_Quant.py --cluster "sbatch -t 03:00:00 -c 16 -N 1"
 ```
+**DESeq2**
+```
+Rscript DESeq2_RatHumanOrthologMetadata.r
+```
+
