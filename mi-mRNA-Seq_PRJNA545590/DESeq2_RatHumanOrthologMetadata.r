@@ -82,8 +82,13 @@ RatHumanOrthoMerged=distinct(RatHumanOrthoMerged)
 RatHumanOrthoDGE = merge(RatHumanOrthoMerged,result,by="Rat_ensembl_gene_id_version",all.y=TRUE)
 write.table(RatHumanOrthoDGE,"RatHumanOrthoDGE.tsv" ,sep = '\t',row.names = FALSE)
 
-#Merge with counts. 
+##Merge with counts and TPM. 
 #Put GeneID as column
 countData = cbind(Rat_ensembl_gene_id_version = rownames(countData), countData)
 RatHumanOrthoCounts = merge(RatHumanOrthoMerged,countData,by="Rat_ensembl_gene_id_version",all=TRUE)
 write.table(RatHumanOrthoCounts,"RatHumanOrthoCounts.tsv" ,sep = '\t',row.names = FALSE)
+
+TPMData = read.table("out/results_TPM_gene.tsv",header=TRUE,sep = '\t')
+RatHumanOrthoTPM = merge(RatHumanOrthoMerged,TPMData,by="Rat_ensembl_gene_id_version",all=TRUE)
+write.table(RatHumanOrthoTPM,"RatHumanOrthoTPM.tsv" ,sep = '\t',row.names = FALSE)
+
