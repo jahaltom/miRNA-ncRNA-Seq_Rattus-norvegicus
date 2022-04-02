@@ -1,4 +1,4 @@
-# BioProject PRJNA545590 (ncRNA-Seq)
+# BioProject PRJNA545590 
 
 # miRNA-Seq 
 Since the data is paired-end, it is very unlikely to find mature miRNAs, the best thing that can happen is finding long precursors. Since miRDeep2 only does single end, I used the 1st mate of the pair which is standard.
