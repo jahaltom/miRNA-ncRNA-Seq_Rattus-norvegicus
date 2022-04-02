@@ -55,6 +55,8 @@ Quantifies runs in parallel. Outputs transcript and gene level TPM and counts. G
 snakemake -j 50 -s SRA_Quant.py --cluster "sbatch -t 03:00:00 -c 16 -N 1"
 ```
 **DESeq2**
+Peforms gene level DGE. Adds in Human Ortholog information via biomaRt(Includes Many_to_Many,One_to_Many,One_to_One Orthologs). 
+
 ```
 Rscript DESeq2_RatHumanOrthologMetadata.r
 ```
