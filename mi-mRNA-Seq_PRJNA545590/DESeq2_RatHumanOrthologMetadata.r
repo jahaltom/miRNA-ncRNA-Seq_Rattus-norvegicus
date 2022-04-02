@@ -73,9 +73,9 @@ RatHumanOrthoMerged=distinct(RatHumanOrthoMerged)
 RatHumanOrthoDGE = merge(RatHumanOrthoMerged,result,by="ensembl_gene_id_version",all.y=TRUE)
 write.table(RatHumanOrthoDGE,"RatHumanOrthoDGE.tsv" ,sep = '\t',row.names = FALSE)
 
-#Round counts to nearest int and merge 
-countData = read.table("out/results_Count_gene.tsv",header=TRUE,sep = '\t')
-countData=round(countData,0) 
+#Merge with counts. 
+#Put GeneID as column
+countData = cbind(ensembl_gene_id_version = rownames(countData), countData)
 RatHumanOrthoCounts = merge(RatHumanOrthoMerged,countData,by="ensembl_gene_id_version",all=TRUE)
 write.table(RatHumanOrthoCounts,"RatHumanOrthoCounts.tsv" ,sep = '\t',row.names = FALSE)
 
