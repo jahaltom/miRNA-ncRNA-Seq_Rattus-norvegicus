@@ -59,8 +59,8 @@ rule merge:
                     txids.append(thistx.split('|')[0])
                     gnids.append(thistx.split('|')[3])
 
-                dftpm=pd.DataFrame({'ensembl_transcript_id_version':txids,'ensembl_gene_id_version_Rat':gnids})
-                dfcount=pd.DataFrame({'ensembl_transcript_id_version':txids,'ensembl_gene_id_version_Rat':gnids})
+                dftpm=pd.DataFrame({'ensembl_transcript_id_version_Rat':txids,'ensembl_gene_id_version_Rat':gnids})
+                dfcount=pd.DataFrame({'ensembl_transcript_id_version_Rat':txids,'ensembl_gene_id_version_Rat':gnids})
 
 
                 #Loop through all quant files
@@ -80,13 +80,13 @@ rule merge:
                 
     
                 ##transcript level TPMs and counts.
-                dftpm[['ensembl_transcript_id_version']+names].to_csv(wildcards.wd+"/results_TPM_tx.tsv",sep='\t',index=False)
-                dfcount[['ensembl_transcript_id_version']+names].to_csv(wildcards.wd+"/results_Counts_tx.tsv",sep='\t',index=False)
+                dftpm.to_csv(wildcards.wd+"/results_TPM_tx.tsv",sep='\t',index=False)
+                dfcount.to_csv(wildcards.wd+"/results_Counts_tx.tsv",sep='\t',index=False)
 
 
                 #Collapse so that each gene id is listed once. sum up corresponding transcript TPM and counts.
-                dftpm.drop('ensembl_transcript_id_version', axis=1, inplace=True)
-                dfcount.drop('ensembl_transcript_id_version', axis=1, inplace=True)               
+                dftpm.drop('ensembl_transcript_id_version_Rat', axis=1, inplace=True)
+                dfcount.drop('ensembl_transcript_id_version_Rat', axis=1, inplace=True)               
                 dftpm = dftpm.groupby(['ensembl_gene_id_version_Rat'],as_index = False).sum()
                 dfcount = dfcount.groupby(['ensembl_gene_id_version_Rat'],as_index = False).sum()
 
