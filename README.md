@@ -53,11 +53,13 @@ sbatch Prepare_Transcriptome_data.sh
 ```
 
 **Transcript Quantification**
+
 Quantifies runs in parallel. Outputs transcript and gene level TPM and counts. Gene level summed up across transcripts.
 ```
 snakemake -j 50 -s SRA_Quant.py --cluster "sbatch -t 03:00:00 -c 16 -N 1"
 ```
 **DESeq2**
+
 Peforms gene level DGE analysis with DESeq2. Adds in Human Ortholog information via biomaRt(Includes one2one, one2many, and many2many orthologs). 
 
 ```
