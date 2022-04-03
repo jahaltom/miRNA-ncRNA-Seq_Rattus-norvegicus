@@ -41,6 +41,9 @@ rno-miR-466b-3p 1.00    rno-mir-466b-3  1.00    1.00    500000.00
 
 
 # mRNA/ncRNA-Seq
+## Prerequisites
+* Run: `conda env create -f env.yaml`
+* Activate the environment: `conda activate pyrpipe_covid`
 
 **Prepareing Transcriptome Data**
 
